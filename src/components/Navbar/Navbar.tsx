@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../app/store";
 import "./Navbar.css";
 
 function Navbar() {
-  const cartItems = useSelector((state: RootState) => state.cart.items);
-
-  const cartQuantity = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
   return (
     <>
       {/* Top contact and promotional bar */}
@@ -69,7 +60,10 @@ function Navbar() {
             <li>
               <Link to="/" className="shop-link">
                 Shop
-                <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <i
+                  className="fa-solid fa-chevron-down"
+                  aria-hidden="true"
+                ></i>
               </Link>
             </li>
 
@@ -103,12 +97,12 @@ function Navbar() {
               ></i>
             </button>
 
-            <Link to="/cart" className="cart-link nav-icon" aria-label="Cart">
+            <Link to="/cart" className="nav-icon cart-link" aria-label="Cart">
               <i
                 className="fa-solid fa-cart-shopping"
                 aria-hidden="true"
               ></i>
-              <span className="nav-count">{cartQuantity}</span>
+              <span className="nav-count">0</span>
             </Link>
 
             <button
